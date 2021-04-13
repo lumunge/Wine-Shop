@@ -68,10 +68,3 @@ export default class Cart extends Component {
         )
     }
 }
-
-
-// {cartItems.length === 0 ? (
-//     <div>cart is empty</div>
-// ) : (
-//     <div> You have {cartItems.length} in teh cart{" " }
-// )}
