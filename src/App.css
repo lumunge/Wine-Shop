@@ -40,6 +40,15 @@ header{
 .cart-btn button{
   margin: 10px 0;
 }
+
+
+/* FILTERING STYLING */
+#nav-showme-tab{
+  margin-right: 5rem;
+}
+/* END FILTERING STYLING */
+
+
 /* WINES STYLING */
 .wines{
   margin-top: 3rem;
