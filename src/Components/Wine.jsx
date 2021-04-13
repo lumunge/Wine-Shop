@@ -1,10 +1,33 @@
 import React, { Component } from 'react';
+import Modal from 'react-modal';
+import Zoom from 'react-reveal/Zoom';
 import formatCurrency from '../utils.js';
 import wineImage from '../Assets/img/remi-inconnu-Champagne-bottle.svg';
 
 export default class Wine extends Component {
+    constructor(props){
+        super();
+        this.state = {
+            isModalOpen: false
+        }
+    }
+
+    openModal = () => {
+        this.setState({
+            isModalOpen: true
+        })
+    }
+
+    closeModal = () => {
+        this.setState({
+            isModalOpen: false
+        })
+    }
         
     render() {
+
+         const isModalOpen = this.state.isModalOpen;
+
         return (
                 <div className="row wines">
                     {this.props.wines.map(wine => (
@@ -33,13 +56,21 @@ export default class Wine extends Component {
                                 </div>
                                 <div className="wine-buttons">
                                     <div className="">
-                                        <button className="btn btn-secondary mr-2">Details</button>
+                                        <button onClick={() => this.openModal(wine)} className="btn btn-secondary mr-2">Details</button>
                                     </div>
                                     <div className="">
                                         <button onClick={() => this.props.addToCart(wine)} className="btn btn-dark">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
+                            {isModalOpen && (
+                                <Modal className="details-modal" isOpen={true} onRequestClose={this.closeModal}>
+                                    <Zoom className="details">
+                                        <button onClick={this.closeModal} className="close-modal">X</button>
+                                        <p>{wine.details}</p>
+                                    </Zoom>
+                                </Modal>
+                            )}
                         </div>
                     ))}
                 </div>
