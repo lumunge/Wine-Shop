@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 
 export default class Cart extends Component {
     render() {
+
+        const {cartItems} = this.props;
+
+
         return (
             <div className="container">
                 <div className="filter-component">
@@ -38,7 +42,14 @@ export default class Cart extends Component {
                         delivery
                     </div>
                     <div className="text-center">
-                        <h1>{this.props.count} <br/> Bottles</h1>
+                    <div>
+                        {cartItems.length === 0 ? (
+                            <div className="cart cart-header">Cart is Empty</div>
+                        ) : (
+                            <div className="cart cart-header">You have {cartItems.length} Items</div>
+                        )}
+                    </div>
+                        <h1>{cartItems.length} <br/> Bottles</h1>
                     </div>
                     <div className="">
                         <span>36 x Wines234 </span>
@@ -57,3 +68,10 @@ export default class Cart extends Component {
         )
     }
 }
+
+
+// {cartItems.length === 0 ? (
+//     <div>cart is empty</div>
+// ) : (
+//     <div> You have {cartItems.length} in teh cart{" " }
+// )}
