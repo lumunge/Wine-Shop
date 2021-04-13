@@ -2,6 +2,32 @@ import React, { Component } from 'react'
 import formatCurrency from '../utils';
 
 export default class Cart extends Component {
+    constructor(props){
+        super();
+        this.state = {
+            showCheckout: false,
+            deliveryNote: '',
+        }
+    }
+
+    handleCheck = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    }
+
+    createOrder = (e) => {
+        e.preventDefault();
+        const order = {
+            deliveryNote: this.state.deliveryNote,
+            cartItems: this.props.cartItems
+        }
+        this.props.createOrder(order);
+        this.setState({
+            showCheckout: false
+        })
+    }
+
     render() {
 
         const {cartItems} = this.props;
@@ -38,20 +64,22 @@ export default class Cart extends Component {
                         </div>
                     </div>
                 </div>
-                {/* <div className="cart-component"> */}
-                    <form className="cart-component">
-                    <div className="text-center">
-                            <textarea cols="20" rows="3" placeholder="Delivery text here..."></textarea>
-                    </div>
-                    <div className="text-center">
+                <div>
+                    <div className="cart-component">
+                    <form onSubmit={this.createOrder} className="text-center">
+                        <textarea name="deliveryNote" cols="20" rows="3" placeholder="Delivery text here..." onChange={this.handleCheck}></textarea>
+                            {this.state.showCheckout && (
+                                <button type="submit" className="buy-btn">Purchase</button>
+                            )}
+                    </form>
+                    <div className="text-center mr-4">
                         {cartItems.length === 0 ? (
                             <h1>{cartItems.length} <br/> Bottles</h1>
                         ) : (
                             <h1>{amount} <br/> Bottles</h1>
                         )}
-                        {/* <h1>{cartItems.length} <br/> Bottles</h1> */}
                     </div>
-                    <div className="prices">
+                    <div className="prices mr-4">
                         <div className="mb-4 amount">
                             <h4>{amount} x Wine Bottle</h4>
                         </div>
@@ -66,12 +94,13 @@ export default class Cart extends Component {
                             <button onClick={this.props.clearCart} className="btn btn-secondary">Empty Cart</button>
                         </div>
                         <div className="">
-                            <button className="btn btn-dark">Check Out</button>
+                            <button onClick={() => {this.setState({ showCheckout: true })}} className="btn btn-dark">Check Out</button>
                         </div>
                     </div>
-                    </form>
+                    </div>
                 </div>
-            // </div>
+             </div>
         )
     }
 }
+

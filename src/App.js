@@ -11,9 +11,14 @@ export default class App extends React.Component{
     this.state = {
       wines: [],
       cartItems: [],
+      // cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
       amount: ''
     }
     this.handleChange = this.handleChange.bind(this);
+  }
+
+  createOrder = (order) => {
+    alert("Your Order Was Placed Successfully ", + order.name)
   }
 
   componentDidMount = () => {
@@ -45,6 +50,7 @@ export default class App extends React.Component{
     this.setState({
       cartItems: cartItems,
     })
+    localStorage.setItem("cartItems", JSON.stringify(cartItems))
   }
 
   clearCart = () => {
@@ -77,6 +83,7 @@ export default class App extends React.Component{
               cartItems={this.state.cartItems}
               clearCart={this.clearCart}
               amount={this.state.amount}
+              createOrder={this.createOrder}
             />
           </div>
           <div className="wines">
