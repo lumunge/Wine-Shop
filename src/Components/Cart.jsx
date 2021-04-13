@@ -38,11 +38,10 @@ export default class Cart extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="cart-component">
+                {/* <div className="cart-component"> */}
+                    <form className="cart-component">
                     <div className="text-center">
-                        <form>
                             <textarea cols="20" rows="3" placeholder="Delivery text here..."></textarea>
-                        </form>
                     </div>
                     <div className="text-center">
                         {cartItems.length === 0 ? (
@@ -70,8 +69,9 @@ export default class Cart extends Component {
                             <button className="btn btn-dark">Check Out</button>
                         </div>
                     </div>
+                    </form>
                 </div>
-            </div>
+            // </div>
         )
     }
 }
