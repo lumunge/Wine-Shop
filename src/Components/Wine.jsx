@@ -35,7 +35,7 @@ export default class Wine extends Component {
                                         <button className="btn btn-secondary mr-2">Details</button>
                                     </div>
                                     <div className="">
-                                        <button className="btn btn-dark">Add to Cart</button>
+                                        <button onClick={() => this.props.addToCart(wine)} className="btn ">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>

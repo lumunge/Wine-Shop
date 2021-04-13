@@ -9,7 +9,8 @@ export default class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      wines: []
+      wines: [],
+      cartItems: [],
     }
   }
   state={
@@ -30,6 +31,23 @@ export default class App extends React.Component{
       })
   }
 
+  addToCart = (wine) => {
+    const cartItems = this.state.cartItems.slice();
+    let alreadyInCart = false;
+    cartItems.forEach(item => {
+      if(item.id === wine.id){
+        item.count++;
+        alreadyInCart = true;
+      }
+    });
+    if(alreadyInCart){
+      cartItems.push({...wine, count: 1})
+    }
+    this.setState({
+      cartItems: cartItems
+    })
+  }
+
 
 
   render(){
@@ -43,10 +61,12 @@ export default class App extends React.Component{
           <div>
             <Cart 
               count={this.state.wines.length}
+              cartItems={this.state.cartItems}
             />
           </div>
           <div className="wines">
             <Wine
+              addToCart={this.addToCart}
               wines={this.state.wines}
             />
           </div>
