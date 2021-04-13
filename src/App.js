@@ -11,10 +11,9 @@ export default class App extends React.Component{
     this.state = {
       wines: [],
       cartItems: [],
+      amount: ''
     }
-  }
-  state={
-
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount = () => {
@@ -34,19 +33,33 @@ export default class App extends React.Component{
   addToCart = (wine) => {
     const cartItems = this.state.cartItems.slice();
     let alreadyInCart = false;
-    cartItems.forEach(item => {
-      if(item.id === wine.id){
+    cartItems.forEach((item) => {
+      if(item.no === wine.no){
         item.count++;
-        alreadyInCart = true;
+        alreadyInCart=true;
       }
     });
-    if(alreadyInCart){
+    if(!alreadyInCart){
       cartItems.push({...wine, count: 1})
     }
     this.setState({
-      cartItems: cartItems
+      cartItems: cartItems,
     })
   }
+
+  clearCart = () => {
+    this.setState({
+      cartItems: [],
+      amount: ''
+    })
+  }
+
+
+  handleChange(e){
+    this.setState({
+        amount: e.target.value
+    })
+}
 
 
 
@@ -60,14 +73,18 @@ export default class App extends React.Component{
         <main>
           <div>
             <Cart 
-              count={this.state.wines.length}
+              count={this.state.amount}
               cartItems={this.state.cartItems}
+              clearCart={this.clearCart}
+              amount={this.state.amount}
             />
           </div>
           <div className="wines">
             <Wine
               addToCart={this.addToCart}
               wines={this.state.wines}
+              amount={this.state.amount}
+              handleChange={this.handleChange}
             />
           </div>
         </main>

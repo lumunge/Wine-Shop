@@ -40,8 +40,6 @@ header{
 .cart-btn button{
   margin: 10px 0;
 }
-
-
 /* FILTERING STYLING */
 #nav-showme-tab{
   margin-right: 5rem;
@@ -81,7 +79,7 @@ header{
 }
 .bottle input,
 .case input{
-  width: 40%;
+  width: 60%;
   height: 10px;
 }
 .wine-header{

@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import formatCurrency from '../utils';
 
 export default class Cart extends Component {
     render() {
 
         const {cartItems} = this.props;
-
+        const {amount} = this.props;
 
         return (
             <div className="container">
@@ -39,25 +40,31 @@ export default class Cart extends Component {
                 </div>
                 <div className="cart-component">
                     <div className="text-center">
-                        delivery
+                        <form>
+                            <textarea cols="20" rows="3" placeholder="Delivery text here..."></textarea>
+                        </form>
                     </div>
                     <div className="text-center">
-                    <div>
                         {cartItems.length === 0 ? (
-                            <div className="cart cart-header">Cart is Empty</div>
+                            <h1>{cartItems.length} <br/> Bottles</h1>
                         ) : (
-                            <div className="cart cart-header">You have {cartItems.length} Items</div>
+                            <h1>{amount} <br/> Bottles</h1>
                         )}
+                        {/* <h1>{cartItems.length} <br/> Bottles</h1> */}
                     </div>
-                        <h1>{cartItems.length} <br/> Bottles</h1>
-                    </div>
-                    <div className="">
-                        <span>36 x Wines234 </span>
-                        <p>Ksh 432.56</p>
+                    <div className="prices">
+                        <div className="mb-4 amount">
+                            <h4>{amount} x Wine Bottle</h4>
+                        </div>
+                        <div className="price">
+                            <h4>{formatCurrency(
+                                cartItems.reduce((a, b) => a + b.cost.bottle * amount, 0)
+                            )}</h4>
+                        </div>
                     </div>
                     <div className="cart-btn">
                         <div className="">
-                            <button className="btn btn-secondary">Empty Cart</button>
+                            <button onClick={this.props.clearCart} className="btn btn-secondary">Empty Cart</button>
                         </div>
                         <div className="">
                             <button className="btn btn-dark">Check Out</button>
@@ -68,10 +75,3 @@ export default class Cart extends Component {
         )
     }
 }
-
-
-// {cartItems.length === 0 ? (
-//     <div>cart is empty</div>
-// ) : (
-//     <div> You have {cartItems.length} in teh cart{" " }
-// )}

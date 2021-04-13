@@ -3,11 +3,12 @@ import formatCurrency from '../utils.js';
 import wineImage from '../Assets/img/remi-inconnu-Champagne-bottle.svg';
 
 export default class Wine extends Component {
+        
     render() {
         return (
                 <div className="row wines">
                     {this.props.wines.map(wine => (
-                        <div className="col-sm-4 mb-4 wine">
+                        <div key={wine.no} className="col-sm-4 mb-4 wine">
                             <div className="wine-image">
                                 <img src={wineImage} alt={wine.name} />
                             </div>
@@ -20,14 +21,14 @@ export default class Wine extends Component {
                                         <h4>Bottle</h4>
                                         {formatCurrency(wine.cost.bottle)}
                                         <br/>
-                                        <input type="text"/> QTY
+                                        <input type="number" value={this.amount} onChange={this.props.handleChange}/> QTY
                                     </div>
                                     <div className="divider"></div>
                                     <div className="case">
                                         <h4>Case</h4>
                                         {formatCurrency(wine.cost.case)}
                                         <br/>
-                                        <input type="text"/> QTY
+                                        <input type="text"  /> QTY
                                     </div>
                                 </div>
                                 <div className="wine-buttons">
@@ -35,7 +36,7 @@ export default class Wine extends Component {
                                         <button className="btn btn-secondary mr-2">Details</button>
                                     </div>
                                     <div className="">
-                                        <button onClick={() => this.props.addToCart(wine)} className="btn ">Add to Cart</button>
+                                        <button onClick={() => this.props.addToCart(wine)} className="btn btn-dark">Add to Cart</button>
                                     </div>
                                 </div>
                             </div>
