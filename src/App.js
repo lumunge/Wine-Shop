@@ -41,7 +41,9 @@ export default class App extends React.Component{
         </header>
         <main>
           <div>
-            <Cart />
+            <Cart 
+              count={this.state.wines.length}
+            />
           </div>
           <div className="wines">
             <Wine

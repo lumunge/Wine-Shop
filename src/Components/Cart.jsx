@@ -7,21 +7,29 @@ export default class Cart extends Component {
                 <div className="filter-component">
                     <h4>Filtering here</h4>
                     <div className="filter-header">
-                        <button>Show me</button>
-                        <button>Show all</button>
+                    <nav>
+                    <div className="nav nav-tabs" id="nav-tab" role="tablist">
+                        <button className="nav-link active" id="nav-showme-tab" data-bs-toggle="tab" data-bs-target="#nav-showme" type="button" role="tab" aria-controls="nav-showme" aria-selected="true">Show me</button>
+                        <button className="nav-link" id="nav-showall-tab" data-bs-toggle="tab" data-bs-target="#nav-showall" type="button" role="tab" aria-controls="nav-profile" aria-selected="false">Show all</button>
+                    </div>
+                    </nav>
+
                     </div>
                     <div className="filter-content">
-                        <div className="categories">
-                            <button className="">category 1</button>
-                            <button className="">category 2</button>
-                            <button className="">category 3</button>
-                        </div>
                         <div className="order">
                             <div className="">
-                                <p>Order by</p>
+                            <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                            <li className="nav-item mr-3" role="presentation">
+                                <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">White</button>
+                            </li>
+                            <li className="nav-item mr-3" role="presentation">
+                                <button className="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Red</button>
+                            </li>
+                            <li class="nav-item mr-3" role="presentation">
+                                <button className="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Sparkling</button>
+                            </li>
+                            </ul>
                             </div>
-                            <button className="">Price</button>
-                            <button className="">Vintage</button>
                         </div>
                     </div>
                 </div>
@@ -30,7 +38,7 @@ export default class Cart extends Component {
                         delivery
                     </div>
                     <div className="text-center">
-                        <h1>36 <br/> Bottles</h1>
+                        <h1>{this.props.count} <br/> Bottles</h1>
                     </div>
                     <div className="">
                         <span>36 x Wines234 </span>
