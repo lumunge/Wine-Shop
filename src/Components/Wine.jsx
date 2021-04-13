@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import formatCurrency from '../utils.js';
 import wineImage from '../Assets/img/remi-inconnu-Champagne-bottle.svg';
 
 export default class Wine extends Component {
@@ -17,14 +18,14 @@ export default class Wine extends Component {
                                 <div className="wine-main">
                                     <div className="bottle">
                                         <h4>Bottle</h4>
-                                        {wine.cost.bottle}
+                                        {formatCurrency(wine.cost.bottle)}
                                         <br/>
                                         <input type="text"/> QTY
                                     </div>
                                     <div className="divider"></div>
                                     <div className="case">
                                         <h4>Case</h4>
-                                        {wine.cost.case}
+                                        {formatCurrency(wine.cost.case)}
                                         <br/>
                                         <input type="text"/> QTY
                                     </div>
