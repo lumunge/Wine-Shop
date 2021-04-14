@@ -68,7 +68,6 @@ export default class Cart extends Component {
                                 Mobile: <span> {this.props.mobile} </span> <br/>
                                 Email: <span> {this.props.email} </span> <br/>
                                 Address: <span> {this.props.address} </span> <br/>
-                                {/* <p>Merch: <span>{this.props.cartItems} </span></p> */}
                             </div>
                             <div className="checkout">
                             {this.state.showCheckout && (
