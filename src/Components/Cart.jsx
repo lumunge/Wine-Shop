@@ -35,42 +35,6 @@ export default class Cart extends Component {
 
         return (
             <div className="container">
-                <div className="filter-component">
-                    <h4>Filtering here</h4>
-                    <div className="filter-header">
-                        <div className="show-me">
-                            <button>Show me</button>
-                        </div>
-                        <div className="show-me">
-                            <button>Show all</button>
-                        </div>
-                    </div>
-                    <div className="filter-content">
-                        <div className="order">
-                            <div>
-                                <button>White</button>
-                            </div>
-                            <div className="">
-                                <button>Red</button>
-                            </div>
-                            <div className="">
-                                <button>Sparkling</button>
-                            </div>
-                        </div>
-                        <div className="order">
-                            <div className="">
-                                Order by
-                            </div>
-                            <div className="">
-                                <button>Price</button>
-                            </div>
-                            <div className="">
-                                <button>Vintage</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
                     <div className="cart-component">
                     <form onSubmit={this.createOrder} className="text-center">
                         <textarea name="deliveryNote" cols="20" rows="3" placeholder="Delivery text here..." onChange={this.handleCheck}></textarea>
@@ -105,7 +69,6 @@ export default class Cart extends Component {
                     </div>
                     </div>
                 </div>
-             </div>
         )
     }
 }

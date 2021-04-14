@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Cart from './Components/Cart';
 import Wine from './Components/Wine';
 import './App.css';
+import Filter from './Components/Filter';
 
 export default class App extends React.Component{
   constructor(){
@@ -12,7 +13,9 @@ export default class App extends React.Component{
       wines: [],
       cartItems: [],
       // cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
-      amount: ''
+      amount: '',
+      variety: '',
+      sort: ''
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -67,9 +70,43 @@ export default class App extends React.Component{
     })
 }
 
+filterWines = (e) => {
+  const wines = this.state.wines;
+  if(e.target.value === ""){
+    this.setState({
+      variety: e.target.value,
+      wines
+    });
+  }else{
+  this.setState({
+    variety: e.target.value,
+    wines: wines.filter((wine) => wine.tags.indexOf(e.target.value) >= 0)
+  });
+}
+}
+
+  sortWines = (e) => {
+    const sort = e.target.value;
+    this.setState((state) => ({
+      sort: sort,
+      wines: this.state.wines.sort((a, b) => 
+      sort === "bottle-price" ?
+      a.cost.bottle > b.cost.bottle ?
+      1 : -1:
+      sort === "case-price" ? 
+      a.cost.case > b.cost.case ?
+      1: -1:
+      a.no > b.no ?
+      1 : -1 ),
+    }));
+  };
+
 
 
   render(){
+
+
+
     return(
       <div className="wrapper">
         <header>
@@ -78,8 +115,15 @@ export default class App extends React.Component{
         </header>
         <main>
           <div>
+            <Filter 
+              count={this.state.wines.length}
+              variety={this.state.variety}
+              sort={this.state.sort}
+              filterWines={this.filterWines}
+              sortWines={this.sortWines}            
+            />
             <Cart 
-              count={this.state.amount}
+              count={this.state.wines}
               cartItems={this.state.cartItems}
               clearCart={this.clearCart}
               amount={this.state.amount}
