@@ -76,19 +76,19 @@ export default class Cart extends Component {
                                     <form onSubmit={this.createOrder} className="delivery-form">
                                         <small>Enter Your Details To Proceed With Purchase</small>
                                         <div className="pb-2">
-                                            <input name="fullname" className="form-control" type="text" placeholder="full names..." onChange={this.handleCheck} />
+                                            <input name="fullname" className="form-control" type="text" placeholder="full names..." onChange={this.handleCheck} required />
                                         </div>
                                         <div className="pb-2">
-                                            <input name="mobile" className="form-control" type="number" placeholder="Mobile..." onChange={this.handleCheck} />
+                                            <input name="mobile" className="form-control" maxlength="10" type="number" placeholder="Mobile..." onChange={this.handleCheck} required />
                                         </div>
                                         <div className="pb-2">
-                                            <input name="email" className="form-control" type="email" placeholder="Email Address..." onChange={this.handleCheck} />
+                                            <input name="email" className="form-control" type="email" placeholder="Email Address..." onChange={this.handleCheck} required />
                                         </div>
                                         <div className="pb-2">
-                                            <input name="address" className="form-control" type="text" placeholder="Location, buruburu..." onChange={this.handleCheck} />
+                                            <input name="address" className="form-control" type="text" placeholder="Location, buruburu..." onChange={this.handleCheck} required />
                                         </div>
                                         <div className="pb-2">
-                                            <textarea name="deliveryNote" className="form-control" cols="20" rows="3" placeholder="Delivery text here..." onChange={this.handleCheck}></textarea>
+                                            <textarea name="deliveryNote" className="form-control" cols="20" rows="3" placeholder="Delivery text here..." onChange={this.handleCheck} required></textarea>
                                         </div>
                                         <div>
                                             <button type="submit" className="buy-btn">Purchase</button>
