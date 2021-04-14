@@ -1,3 +1,13 @@
+:root {
+  --primary-color:  #d5d8dc;
+  --secondary-color:  #808b96;
+  --tertiary-color:  #2c3e50;
+  --light-text:  #ecf0f1;
+  /* --overlay-color: rgba(0, 0, 0, 0.75);
+  --show-home-image: true;
+  --home-image: url("../img/conf0.jpg");
+  --background-opacity: 0.9; */
+}
 *{
   margin: 0;
   padding: 0;
@@ -7,9 +17,15 @@ header{
   text-align: center;
   padding: 1.2rem;
 }
+.header{
+  display: flex;
+  margin: 0 3rem;
+}
 .container{
   display: flex;
 }
+
+/* FILTER COMPONENT STYLING */
 .filter-component{
   display: flex;
   flex-direction: column;
@@ -24,17 +40,36 @@ header{
 .categories,
 .order{
   display: flex;
+  flex-direction: column;
   justify-content: space-around;
 }
-.cart-component{
+.filter-buttons{
+  display: flex;
+  justify-content: space-between;
+}
+.filter-btn{
+  padding: 5px 20px;
+  margin: 5px 10px;
+  background: var(--secondary-color);
+  border: none;
+}
+.cart-btn{
+  padding: 5px 15px;
+  margin: 5px 10px;
+  background: var(--tertiary-color);
+  border: none;
+  color: var(--light-text);
+}
+/* END FILTER COMPONENT STYLING */
+.cart-component, .cart{
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-grow: 3;
+  background-color: var(--primary-color);
 }
 .cart-btn{
   display: flex;
-  
   flex-direction: column;
 }
 .cart-btn button{
@@ -53,6 +88,16 @@ header{
   background-color: #333;
   color: yellowgreen
 }
+.delivery-form textarea{
+  border: none;
+}
+.bottles{
+  text-align: center;
+}
+.cart-column{
+  display: flex;
+  justify-content: space-between;
+}
 /* FILTERING STYLING */
 .filter-header,
 .filter-by{
@@ -67,17 +112,20 @@ header{
 
 /* WINES STYLING */
 .wines{
-  margin-top: 3rem;
-  margin-right: 4rem;
-  margin-left: 4rem;
   display: flex;
+  flex-flow: row wrap;
   justify-content: center;
   align-items: center;
+  margin-top: 3rem;
 }
 .wine{
   display: flex;
-  padding-bottom: 5rem;
+  width: 450px;
+  padding: 5rem 0;
   border-bottom: 1px dashed #000;
+}
+.wine-number{
+  font-size: 3rem;
 }
 .wine-details{
   margin-left: -2rem;
@@ -90,6 +138,7 @@ header{
 }
 .wine-main{
   margin: 2rem  0;
+  font-weight: 600;
 }
 .case{
   border-left: 1px solid #000;
@@ -123,7 +172,6 @@ header{
   letter-spacing: 1px;
   padding: 1rem;
 }
-
 .details{
   padding: 1rem;
 }
@@ -136,10 +184,39 @@ footer{
   text-align: center;
 }
 
-@media (min-width:320px)  { /* smartphones, portrait iPhone, portrait 480x320 phones (Android) */ }
-@media (min-width:480px)  { /* smartphones, Android phones, landscape iPhone */ 
-
-}
-@media (min-width:600px)  { /* portrait tablets, portrait iPad, e-readers (Nook/Kindle), landscape 800x480 phones (Android) */ 
-
+/* RESPONSIVE DESIGN */
+@media only screen and (max-width : 960px) {/*--- Tablet portrait ---*/
+  body{
+    background-color: purple;
+  }
+  .header{
+    min-height: 100%;
+  }
+  .wines{
+    margin-bottom: 3rem;
+  }
+  .cart{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .bottles{
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;;
+  }
+  .prices{
+    padding-top: 5px;
+  }
+  .prices .amount h4,
+  .prices .price h4,
+  .bottles h1{
+    font-size: 1rem;
+  }
+  .cart-column{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 0;
+  }
 }

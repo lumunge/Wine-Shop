@@ -29,15 +29,15 @@ export default class Wine extends Component {
          const isModalOpen = this.state.isModalOpen;
 
         return (
-                <div className="row wines">
+                <div className="wines">
                     {this.props.wines.map(wine => (
-                        <div key={wine.no} className="col-sm-4 mb-4 wine">
+                        <div key={wine.no} className="wine">
                             <div className="wine-image">
                                 <img src={wineImage} alt={wine.name} />
                             </div>
                             <div className="wine-details">
-                                <div className="wine-header">
-                                    <h4>{wine.no} <br/> {wine.name}</h4>
+                                <div>
+                                    <h4> <span className="wine-number">{wine.no}</span> <br/> {wine.name}</h4>
                                 </div>
                                 <div className="wine-main">
                                     <div className="bottle">
@@ -56,10 +56,10 @@ export default class Wine extends Component {
                                 </div>
                                 <div className="wine-buttons">
                                     <div className="">
-                                        <button onClick={() => this.openModal(wine)} className="btn btn-secondary mr-2">Details</button>
+                                        <button className="filter-btn" onClick={() => this.openModal(wine)}>Details</button>
                                     </div>
                                     <div className="">
-                                        <button onClick={() => this.props.addToCart(wine)} className="btn btn-dark">Add to Cart</button>
+                                        <button className="cart-btn" onClick={() => this.props.addToCart(wine)}>Add to Cart</button>
                                     </div>
                                 </div>
                             </div>

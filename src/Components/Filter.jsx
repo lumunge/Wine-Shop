@@ -6,25 +6,22 @@ export default class Filter extends Component {
             <div className="filter-component">
                     <div className="filter-content">
                         <div className="order mb-4">
-                            <div>
-                                Show me {" "}
+                            <div className="filter-header">
+                                <span>Show Me</span>
+                                <span>Show All</span>
                             </div>
-                            <select value={this.props.variety} onChange={this.props.filterWines} name="" id="">
-                                <option value="">All</option>
-                                <option value="white">White</option>
-                                <option value="red">Red</option>
-                                <option value="sparkling">Sparkling</option>
-                            </select>
+                            <div className="filter-buttons">
+                                <button className="filter-btn" value="white" onClick={this.props.filterWines}>White</button>
+                                <button className="filter-btn" value="red" onClick={this.props.filterWines}>Red</button>
+                                <button className="filter-btn" value="sparkling" onClick={this.props.filterWines}>Sparkling</button>
+                            </div>
                         </div>
                         <div className="order">
-                            <div className="">
-                                Order by {" "}
+                            <div>
+                                <span> Order by {" "} </span>
+                                <button className="filter-btn" value="bottle-price" onClick={this.props.sortWines}>Price</button>
+                                <button className="filter-btn" value="case-price" onClick={this.props.sortWines}>Vintage</button>
                             </div>
-                            <select value={this.props.sort} onChange={this.props.sortWines} name="" id="">
-                                <option value="">Order by</option>
-                                <option value="bottle-price">Price</option>
-                                <option value="case-price">Vintage</option>
-                            </select>
                         </div>
                     </div>
                 </div>

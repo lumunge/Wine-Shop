@@ -34,15 +34,15 @@ export default class Cart extends Component {
         const {amount} = this.props;
 
         return (
-            <div className="container">
-                    <div className="cart-component">
-                    <form onSubmit={this.createOrder} className="text-center">
+                    <div className="container cart-component">
+                    <form onSubmit={this.createOrder} className="delivery-form">
                         <textarea name="deliveryNote" cols="20" rows="3" placeholder="Delivery text here..." onChange={this.handleCheck}></textarea>
                             {this.state.showCheckout && (
                                 <button type="submit" className="buy-btn">Purchase</button>
                             )}
                     </form>
-                    <div className="text-center mr-4">
+                    <div className="cart-column">
+                    <div className="bottles mr-4">
                         {cartItems.length === 0 ? (
                             <h1>{cartItems.length} <br/> Bottles</h1>
                         ) : (
@@ -50,7 +50,7 @@ export default class Cart extends Component {
                         )}
                     </div>
                     <div className="prices mr-4">
-                        <div className="mb-4 amount">
+                        <div className="amount">
                             <h4>{amount} x Wine Bottle</h4>
                         </div>
                         <div className="price">
@@ -59,16 +59,16 @@ export default class Cart extends Component {
                             )}</h4>
                         </div>
                     </div>
-                    <div className="cart-btn">
+                    </div>
+                    <div>
                         <div className="">
-                            <button onClick={this.props.clearCart} className="btn btn-secondary">Empty Cart</button>
+                            <button className="filter-btn" onClick={this.props.clearCart}>Empty Cart</button>
                         </div>
                         <div className="">
-                            <button onClick={() => {this.setState({ showCheckout: true })}} className="btn btn-dark">Check Out</button>
+                            <button className="cart-btn" onClick={() => {this.setState({ showCheckout: true })}}>Check Out</button>
                         </div>
                     </div>
                     </div>
-                </div>
         )
     }
 }

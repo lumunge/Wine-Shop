@@ -10,9 +10,8 @@ export default class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      wines: [],
+      wines: localStorage.getItem("allWines") ? JSON.parse(localStorage.getItem("allWines")) : [],
       cartItems: [],
-      // cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
       amount: '',
       variety: '',
       sort: ''
@@ -32,10 +31,12 @@ export default class App extends React.Component{
         this.setState({
           wines: allWines
         })
+        localStorage.setItem("allWines", JSON.stringify(allWines))
       })
       .catch((err) => {
         console.log(err);
       })
+      
   }
 
   addToCart = (wine) => {
@@ -53,7 +54,6 @@ export default class App extends React.Component{
     this.setState({
       cartItems: cartItems,
     })
-    localStorage.setItem("cartItems", JSON.stringify(cartItems))
   }
 
   clearCart = () => {
@@ -71,42 +71,40 @@ export default class App extends React.Component{
 }
 
 filterWines = (e) => {
-  const wines = this.state.wines;
-  if(e.target.value === ""){
+  console.log(e.target.value);
+  if (e.target.value === "") {
+    this.setState({ 
+      variety: e.target.value, 
+      wines: this.state.wines
+    });
+  } else {
     this.setState({
       variety: e.target.value,
-      wines
+      wines: this.state.wines.filter(wine => wine.tags.indexOf(e.target.value) >= 0)
     });
-  }else{
-  this.setState({
-    variety: e.target.value,
-    wines: wines.filter((wine) => wine.tags.indexOf(e.target.value) >= 0)
-  });
-}
-}
+  }
+};
 
-  sortWines = (e) => {
-    const sort = e.target.value;
-    this.setState((state) => ({
-      sort: sort,
-      wines: this.state.wines.sort((a, b) => 
-      sort === "bottle-price" ?
-      a.cost.bottle > b.cost.bottle ?
-      1 : -1:
-      sort === "case-price" ? 
-      a.cost.case > b.cost.case ?
-      1: -1:
-      a.no > b.no ?
-      1 : -1 ),
-    }));
-  };
+
+sortWines = (e) => {
+  const sort = e.target.value;
+  this.setState((state) => ({
+    sort: sort,
+    wines: this.state.wines.sort((a, b) => 
+    sort === "bottle-price" ?
+    a.cost.bottle > b.cost.bottle ?
+    1 : -1:
+    sort === "case-price" ? 
+    a.cost.case > b.cost.case ?
+    1: -1:
+    a.no > b.no ?
+    1 : -1 ),
+  }));
+};
 
 
 
   render(){
-
-
-
     return(
       <div className="wrapper">
         <header>
@@ -114,7 +112,7 @@ filterWines = (e) => {
           <p>wineshop.com</p>
         </header>
         <main>
-          <div>
+          <div className="header">
             <Filter 
               count={this.state.wines.length}
               variety={this.state.variety}
@@ -122,6 +120,7 @@ filterWines = (e) => {
               filterWines={this.filterWines}
               sortWines={this.sortWines}            
             />
+            <div className="cart">
             <Cart 
               count={this.state.wines}
               cartItems={this.state.cartItems}
@@ -129,6 +128,7 @@ filterWines = (e) => {
               amount={this.state.amount}
               createOrder={this.createOrder}
             />
+            </div>
           </div>
           <div className="wines">
             <Wine
