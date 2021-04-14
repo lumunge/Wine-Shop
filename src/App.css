@@ -3,10 +3,6 @@
   --secondary-color:  #808b96;
   --tertiary-color:  #2c3e50;
   --light-text:  #ecf0f1;
-  /* --overlay-color: rgba(0, 0, 0, 0.75);
-  --show-home-image: true;
-  --home-image: url("../img/conf0.jpg");
-  --background-opacity: 0.9; */
 }
 *{
   margin: 0;
@@ -54,13 +50,15 @@ header{
   border: none;
 }
 .cart-btn{
-  padding: 5px 15px;
+  padding: 5px 10px;
   margin: 5px 10px;
   background: var(--tertiary-color);
   border: none;
   color: var(--light-text);
 }
 /* END FILTER COMPONENT STYLING */
+
+/* CART STYLING */
 .cart-component, .cart{
   display: flex;
   justify-content: space-around;
@@ -98,6 +96,41 @@ header{
   display: flex;
   justify-content: space-between;
 }
+/* Checkout Form */
+.checkout{
+}
+.checkout-modal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+}
+.delivery-form{
+  padding: 3rem;
+  border: none;
+  border-radius: 10px;
+  background: var(--secondary-color);
+}
+.delivery-form small{
+  color: var(--light-text);
+  font-weight: 400;
+}
+.close-checkout{
+  margin-top: 1rem;
+  position: absolute;
+  right: 36%;
+  padding: 5px;
+  border: .5px solid #333;
+  background-color: #333;
+  color: yellowgreen
+  
+}
+.delivery-info{
+  font-weight: bolder;
+  color: var(--tertiary-color);
+}
+/* END CART STYLING */
+
 /* FILTERING STYLING */
 .filter-header,
 .filter-by{
@@ -185,14 +218,20 @@ footer{
 }
 
 /* RESPONSIVE DESIGN */
-@media only screen and (max-width : 960px) {/*--- Tablet portrait ---*/
-  body{
-    background-color: purple;
-  }
+@media only screen and (max-width : 960px) {
   .header{
     min-height: 100%;
   }
+  .wine{
+    width: 300px;
+  }
+  .wine-image img{
+    width: 100px;
+    height: 250px;
+    padding-right: 3rem;
+  }
   .wines{
+    text-align: center;
     margin-bottom: 3rem;
   }
   .cart{

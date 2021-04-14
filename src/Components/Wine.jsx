@@ -44,14 +44,14 @@ export default class Wine extends Component {
                                         <h4>Bottle</h4>
                                         {formatCurrency(wine.cost.bottle)}
                                         <br/>
-                                        <input type="number" value={this.amount} onChange={this.props.handleChange}/> QTY
+                                        <input type="number" value={this.bottleAmount} onChange={this.props.handleBottleChange}/> QTY
                                     </div>
                                     <div className="divider"></div>
                                     <div className="case">
                                         <h4>Case</h4>
                                         {formatCurrency(wine.cost.case)}
                                         <br/>
-                                        <input type="text"  /> QTY
+                                        <input type="number" value={this.caseAmount} onChange={this.props.handleCaseChange}  /> QTY
                                     </div>
                                 </div>
                                 <div className="wine-buttons">

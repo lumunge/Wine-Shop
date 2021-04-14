@@ -12,15 +12,28 @@ export default class App extends React.Component{
     this.state = {
       wines: localStorage.getItem("allWines") ? JSON.parse(localStorage.getItem("allWines")) : [],
       cartItems: [],
-      amount: '',
+      bottleAmount: '',
+      caseAmount: '',
       variety: '',
-      sort: ''
+      sort: '',
+      fullname: '',
+      mobile: '',
+      email: '',
+      address: ''
     }
-    this.handleChange = this.handleChange.bind(this);
+    this.handleBottleChange = this.handleBottleChange.bind(this);
+    this.handleCaseChange = this.handleCaseChange.bind(this);
   }
 
   createOrder = (order) => {
-    alert("Your Order Was Placed Successfully ", + order.name)
+    this.setState({
+      fullname: order.fullname,
+      cartItems: order.cartItems,
+      mobile: order.mobile,
+      email: order.email,
+      address: order.address
+    })
+    alert("Your Order Was Placed Successfully")
   }
 
   componentDidMount = () => {
@@ -59,16 +72,28 @@ export default class App extends React.Component{
   clearCart = () => {
     this.setState({
       cartItems: [],
-      amount: ''
+      bottleAmount: '',
+      caseAmount: '',
+      fullname: '',
+      mobile: '',
+      email: '',
+      address: ''
     })
   }
 
 
-  handleChange(e){
+  handleBottleChange(e){
     this.setState({
-        amount: e.target.value
+        bottleAmount: e.target.value,
+        
     })
 }
+
+  handleCaseChange(e){
+    this.setState({
+      caseAmount: e.target.value
+    })
+  }
 
 filterWines = (e) => {
   console.log(e.target.value);
@@ -123,9 +148,14 @@ sortWines = (e) => {
             <div className="cart">
             <Cart 
               count={this.state.wines}
+              fullname={this.state.fullname}
+              mobile={this.state.mobile}
+              email={this.state.email}
+              address={this.state.address}
               cartItems={this.state.cartItems}
               clearCart={this.clearCart}
-              amount={this.state.amount}
+              bottleAmount={this.state.bottleAmount}
+              caseAmount={this.state.caseAmount}
               createOrder={this.createOrder}
             />
             </div>
@@ -134,8 +164,10 @@ sortWines = (e) => {
             <Wine
               addToCart={this.addToCart}
               wines={this.state.wines}
-              amount={this.state.amount}
-              handleChange={this.handleChange}
+              bottleAmount={this.state.bottleAmount}
+              caseAmount={this.state.caseAmount}
+              handleCaseChange={this.handleCaseChange}
+              handleBottleChange={this.handleBottleChange}
             />
           </div>
         </main>
