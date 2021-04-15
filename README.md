@@ -24,7 +24,7 @@ Ecommerce React App - WineShop
 
 ### HOSTED @
 
-    [Wine-Shop](https://lumungep12.github.io/Wine-Shop/)
+[Wine-Shop](https://lumungep12.github.io/Wine-Shop/)
 
 ### SETUP
     * git clone https://github.com/lumungep12/Wine-Shop.git
