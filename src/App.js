@@ -19,10 +19,17 @@ export default class App extends React.Component{
       fullname: '',
       mobile: '',
       email: '',
-      address: ''
+      address: '',
+      smallCart: true
     }
     this.handleBottleChange = this.handleBottleChange.bind(this);
     this.handleCaseChange = this.handleCaseChange.bind(this);
+  }
+
+  showCart = () => {
+    this.setState({
+      smallCart: !this.state.smallCart
+    });
   }
 
   createOrder = (order) => {
@@ -145,7 +152,7 @@ sortWines = (e) => {
               filterWines={this.filterWines}
               sortWines={this.sortWines}            
             />
-            <div className="cart">
+            <div className={this.state.smallCart ? "cart" : "cart cart-show"}>
             <Cart 
               count={this.state.wines}
               fullname={this.state.fullname}
@@ -157,6 +164,8 @@ sortWines = (e) => {
               bottleAmount={this.state.bottleAmount}
               caseAmount={this.state.caseAmount}
               createOrder={this.createOrder}
+              smallCart={this.state.smallCart}
+              showCart={this.showCart}
             />
             </div>
           </div>

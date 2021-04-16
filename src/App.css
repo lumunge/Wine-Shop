@@ -97,8 +97,6 @@ header{
   justify-content: space-between;
 }
 /* Checkout Form */
-.checkout{
-}
 .checkout-modal{
   display: flex;
   flex-direction: column;
@@ -128,6 +126,29 @@ header{
 .delivery-info{
   font-weight: bolder;
   color: var(--tertiary-color);
+}
+.delivery,
+.cart-column,
+.cart-btns{
+  margin-top: 2rem;
+}
+.res-cart{
+  visibility: hidden;
+  width: 100%;
+  position: absolute;
+  top: 20px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 2rem;
+}
+.cart-chev{
+  border: none;
+  font-size: 2rem;
+}
+.cart-chev:hover{
+  color: var(--secondary-color);
+  cursor: pointer;
+  transition: all .4s ease-in;
 }
 /* END CART STYLING */
 
@@ -222,6 +243,13 @@ footer{
   .header{
     min-height: 100%;
   }
+  .filter-component{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: -3rem;
+  }
   .wine{
     width: 300px;
   }
@@ -232,13 +260,17 @@ footer{
   }
   .wines{
     text-align: center;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
+  /* to be cart-show */
   .cart{
     position: fixed;
-    bottom: 0;
+    bottom: -12rem;
     left: 0;
     right: 0;
+  }
+  .cart-show{
+    bottom: 0;
   }
   .bottles{
     border-bottom: 1px solid #000;
@@ -257,5 +289,8 @@ footer{
     flex-direction: column;
     text-align: center;
     padding: 1rem 0;
+  }
+  .res-cart{
+    visibility: visible;
   }
 }
