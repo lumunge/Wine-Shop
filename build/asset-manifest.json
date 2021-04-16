@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Wine-Shop/static/css/main.1ec5a9f7.chunk.css",
-    "main.js": "/Wine-Shop/static/js/main.d75721d5.chunk.js",
-    "main.js.map": "/Wine-Shop/static/js/main.d75721d5.chunk.js.map",
+    "main.js": "/Wine-Shop/static/js/main.21dea983.chunk.js",
+    "main.js.map": "/Wine-Shop/static/js/main.21dea983.chunk.js.map",
     "runtime-main.js": "/Wine-Shop/static/js/runtime-main.18826e18.js",
     "runtime-main.js.map": "/Wine-Shop/static/js/runtime-main.18826e18.js.map",
     "static/css/2.325dfaf0.chunk.css": "/Wine-Shop/static/css/2.325dfaf0.chunk.css",
@@ -19,6 +19,6 @@
     "static/css/2.325dfaf0.chunk.css",
     "static/js/2.20ebf401.chunk.js",
     "static/css/main.1ec5a9f7.chunk.css",
-    "static/js/main.d75721d5.chunk.js"
+    "static/js/main.21dea983.chunk.js"
   ]
 }
