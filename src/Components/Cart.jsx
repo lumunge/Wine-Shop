@@ -60,7 +60,15 @@ export default class Cart extends Component {
         const totalCost = totalBottleCost + totalCaseCost;
 
         return (
-            <>
+            <div className="main-cart">
+                <div className="res-cart">
+                        <div>
+                        <span>View Cart <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </span>
+                        </div>
+                        <div>
+                        <span className="cart-chev" onClick={this.props.showCart}><i class={this.props.smallCart ? "fa fa-chevron-circle-up" : "fa fa-chevron-circle-down"} aria-hidden="true"></i></span>
+                        </div>
+                    </div>
                     <div className="container cart-component">
                         <div className="delivery">
                             <div className="delivery-info">
@@ -127,15 +135,7 @@ export default class Cart extends Component {
                         </div>
                     </div>
                     </div>
-                    <div className="res-cart">
-                        <div>
-                        <span>View Cart <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </span>
-                        </div>
-                        <div>
-                        <span className="cart-chev" onClick={this.props.showCart}><i class={this.props.smallCart ? "fa fa-chevron-circle-up" : "fa fa-chevron-circle-down"} aria-hidden="true"></i></span>
-                        </div>
-                    </div>
-                </>
+                </div>
         )
     }
 }

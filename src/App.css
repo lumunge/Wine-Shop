@@ -127,19 +127,16 @@ header{
   font-weight: bolder;
   color: var(--tertiary-color);
 }
-.delivery,
-.cart-column,
-.cart-btns{
-  margin-top: 2rem;
-}
+
 .res-cart{
   visibility: hidden;
   width: 100%;
-  position: absolute;
-  top: 20px;
   display: flex;
+  position: relative;
   justify-content: space-between;
-  padding: 0 2rem;
+  align-items: center;
+  padding: 1rem 2rem 0 2rem;
+  margin-bottom: -2rem;
 }
 .cart-chev{
   border: none;
@@ -149,6 +146,10 @@ header{
   color: var(--secondary-color);
   cursor: pointer;
   transition: all .4s ease-in;
+}
+.main-cart{
+  display: flex;
+  flex-direction: column;
 }
 /* END CART STYLING */
 
@@ -200,7 +201,7 @@ header{
 }
 .bottle input,
 .case input{
-  width: 60%;
+  width: 80%;
   height: 10px;
 }
 .wine-header{
@@ -260,12 +261,12 @@ footer{
   }
   .wines{
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
   }
   /* to be cart-show */
   .cart{
     position: fixed;
-    bottom: -12rem;
+    bottom: -14rem;
     left: 0;
     right: 0;
   }
@@ -288,7 +289,7 @@ footer{
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 1rem 0;
+    padding: 3rem 0;
   }
   .res-cart{
     visibility: visible;
