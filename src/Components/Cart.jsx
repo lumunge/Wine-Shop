@@ -63,7 +63,7 @@ export default class Cart extends Component {
             <div className="main-cart">
                 <div className="res-cart">
                         <div>
-                        <span>View Cart <i class="fa fa-long-arrow-right" aria-hidden="true"></i> </span>
+                        <h4>{this.props.smallCart ? 'Show Cart': 'Hide Cart' }{" "}<i class="fa fa-long-arrow-right" aria-hidden="true"></i> </h4>
                         </div>
                         <div>
                         <span className="cart-chev" onClick={this.props.showCart}><i class={this.props.smallCart ? "fa fa-chevron-circle-up" : "fa fa-chevron-circle-down"} aria-hidden="true"></i></span>
