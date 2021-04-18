@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Modal from 'react-modal';
 import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
 import formatCurrency from '../utils.js';
 import wineImage from '../Assets/img/remi-inconnu-Champagne-bottle.svg';
 
@@ -29,8 +30,10 @@ export default class Wine extends Component {
          const isModalOpen = this.state.isModalOpen;
 
         return (
+            
                 <div className="wines">
                     {this.props.wines.map(wine => (
+                        <Fade top cascade>
                         <div key={wine.no} className="wine">
                             <div className="wine-image">
                                 <img src={wineImage} alt={wine.name} />
@@ -72,6 +75,7 @@ export default class Wine extends Component {
                                 </Modal>
                             )}
                         </div>
+                        </Fade>
                     ))}
                 </div>
         )
