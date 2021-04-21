@@ -31,7 +31,7 @@ export default class Wine extends Component {
 
         return (
             
-                <div className="wines">
+                <div id="wines" className="wines">
                     {this.props.wines.map(wine => (
                         <Fade top cascade>
                         <div key={wine.no} className="wine">
