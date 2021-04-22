@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Modal from 'react-modal';
 import Zoom from 'react-reveal/Zoom';
 import Fade from 'react-reveal/Fade';
-import formatCurrency from '../utils.js';
-import wineImage from '../Assets/img/remi-inconnu-Champagne-bottle.svg';
+import formatCurrency from '../../utils';
+import wineImage from '../../Assets/img/remi-inconnu-Champagne-bottle.svg';
 
 export default class Wine extends Component {
     constructor(props){

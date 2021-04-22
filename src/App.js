@@ -1,10 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Cart from './Components/Cart';
-import Wine from './Components/Wine';
+import Cart from './Components/Cart/Cart';
+import Wine from './Components/Wine/Wine';
 import './App.css';
-import Filter from './Components/Filter';
+import Filter from './Components/Filter/Filter';
 
 export default class App extends React.Component{
   constructor(){
@@ -44,19 +44,18 @@ export default class App extends React.Component{
   }
 
   componentDidMount = () => {
+    this.getWines();
+  }
+
+  getWines = () => {
     axios.get('https://storage.googleapis.com/wineshop-assets/wine-shop.json')
       .then((res) => {
         const allWines = res.data;
-        console.log(allWines);
+        localStorage.setItem("allWines", JSON.stringify(allWines))
         this.setState({
           wines: allWines
         })
-        localStorage.setItem("allWines", JSON.stringify(allWines))
       })
-      .catch((err) => {
-        console.log(err);
-      })
-      
   }
 
   addToCart = (wine) => {
@@ -140,14 +139,12 @@ sortWines = (e) => {
     return(
       <div className="wrapper">
         <header>
-          <h1>Wine Shop</h1>
-          <p>wineshop.com</p>
+          <h1 data-testid="heading">Wine Shop</h1>
+          <p data-testid="url">wineshop.com</p>
         </header>
         <main>
           <div className="header">
             <Filter 
-              count={this.state.wines.length}
-              variety={this.state.variety}
               sort={this.state.sort}
               filterWines={this.filterWines}
               sortWines={this.sortWines}            

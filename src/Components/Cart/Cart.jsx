@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import formatCurrency from '../utils';
+import formatCurrency from '../../utils.js';
 import Modal from 'react-modal';
 
 export default class Cart extends Component {
@@ -63,10 +63,10 @@ export default class Cart extends Component {
             <div className="main-cart">
                 <div className="res-cart">
                         <div>
-                        <h4>{this.props.smallCart ? 'Show Cart': 'Hide Cart' }{" "}<i class="fa fa-long-arrow-right" aria-hidden="true"></i> </h4>
+                        <h4>{this.props.smallCart ? 'Show Cart': 'Hide Cart' }{" "}<i className="fa fa-long-arrow-right" aria-hidden="true"></i> </h4>
                         </div>
                         <div>
-                        <span className="cart-chev" onClick={this.props.showCart}><i class={this.props.smallCart ? "fa fa-chevron-circle-up" : "fa fa-chevron-circle-down"} aria-hidden="true"></i></span>
+                        <span className="cart-chev" onClick={this.props.showCart}><i className={this.props.smallCart ? "fa fa-chevron-circle-up" : "fa fa-chevron-circle-down"} aria-hidden="true"></i></span>
                         </div>
                     </div>
                     <div className="container cart-component">

@@ -11,9 +11,9 @@ export default class Filter extends Component {
                                 <span>Show All</span>
                             </div>
                             <div className="filter-buttons">
-                                <button className="filter-btn" value="white" onClick={this.props.filterWines}>White</button>
-                                <button className="filter-btn" value="red" onClick={this.props.filterWines}>Red</button>
-                                <button className="filter-btn" value="sparkling" onClick={this.props.filterWines}>Sparkling</button>
+                                <button data-testid="white" className="filter-btn" value="white" onClick={this.props.filterWines}>White</button>
+                                <button data-testid="red" className="filter-btn" value="red" onClick={this.props.filterWines}>Red</button>
+                                <button data-testid="sparkling" className="filter-btn" value="sparkling" onClick={this.props.filterWines}>Sparkling</button>
                             </div>
                         </div>
                         <div className="order">
