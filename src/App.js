@@ -51,7 +51,7 @@ export default class App extends React.Component{
     axios.get('https://storage.googleapis.com/wineshop-assets/wine-shop.json')
       .then((res) => {
         const allWines = res.data;
-        localStorage.setItem("allWines", JSON.stringify(allWines))
+        localStorage.setItem("allWines", JSON.stringify(allWines));
         this.setState({
           wines: allWines
         })
@@ -102,7 +102,6 @@ export default class App extends React.Component{
   }
 
 filterWines = (e) => {
-  console.log(e.target.value);
   if (e.target.value === "") {
     this.setState({ 
       variety: e.target.value, 

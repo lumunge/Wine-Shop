@@ -261,11 +261,12 @@ footer{
   }
   .wines{
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 6rem;
   }
   /* to be cart-show */
   .cart{
     position: fixed;
+    z-index: 100;
     bottom: -14rem;
     left: 0;
     right: 0;
@@ -275,7 +276,7 @@ footer{
   }
   .bottles{
     border-bottom: 1px solid #000;
-    padding-bottom: 5px;;
+    padding-bottom: 5px;
   }
   .prices{
     padding-top: 5px;
